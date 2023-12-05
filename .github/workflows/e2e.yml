@@ -33,6 +33,9 @@ jobs:
         run: |
           npm run start
 
+      - name: Run Lighthouse tests
+        run: npx lighthouse http://localhost:3000 --output json --output-path report.json
+
       - name: Cypress Run
         # https://github.com/marketplace/actions/cypress-io
         uses: cypress-io/github-action@v6
