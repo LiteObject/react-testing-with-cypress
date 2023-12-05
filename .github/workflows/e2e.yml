@@ -1,4 +1,4 @@
-name: Browser Tests
+name: End-to-end Browser Tests
 
 on:
   push:
@@ -8,6 +8,7 @@ on:
 
 jobs:
   cypress:
+    name: Run Cypress Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -15,4 +16,4 @@ jobs:
 
       - name: Cypress Run
         # https://github.com/marketplace/actions/cypress-io
-        uses: cypress-io/github-actions@v6
+        uses: cypress-io/github-action@v6
