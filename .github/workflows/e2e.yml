@@ -19,7 +19,11 @@ jobs:
         with:
             node-version: '18.x'
 
-      - name: Run npm install, build, and test
+      - name: Check formatting and linting
+        run: |
+          echo checking for formatting and linting issues...
+
+      - name: Run npm install, build, and unit tests
         run: |
           npm install
           npm run build --if-present

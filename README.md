@@ -63,3 +63,7 @@ Can either start a chain or be chained off an existing one
 - It helps catch issues before users run into them.
 - We can test against pre-release versions.
 - It scales better than manual testing.
+
+---
+
+## Pipeline Flow
