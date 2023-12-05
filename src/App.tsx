@@ -19,6 +19,7 @@ function App() {
         >
           Learn React
         </a>
+        <button data-testid="my-button" onClick={() => console.log('You clicked the button')}>Click Me</button>
       </header>
     </div>
   );
