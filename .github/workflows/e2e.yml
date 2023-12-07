@@ -30,9 +30,9 @@ jobs:
           npm run build --if-present
           npm run test --if-present
 
-      - name: Run App
-        run: |
-          npm run start
+      # - name: Run App
+      #   run: |
+      #     npm run start
 
       # - name: Run Lighthouse tests
       #   run: npx lighthouse http://localhost:3000 --output json --output-path report.json
