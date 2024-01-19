@@ -1,12 +1,12 @@
-{
-  "compilerOptions": {
+{  
+  "compilerOptions": {   
+    "baseUrl": ".", 
     "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
-    ],
-    "types": ["cypress", "node"],
+    ],    
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -22,6 +22,8 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src", "cypress"
-  ]
+    "src", 
+    // "cypress"
+  ],
+  "exclude": ["node_modules"]
 }

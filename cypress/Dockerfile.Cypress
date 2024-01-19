@@ -1,0 +1,13 @@
+FROM cypress/included:latest
+
+WORKDIR /app
+
+COPY package.json ./
+RUN npm install
+
+COPY ./cypress/ ./
+
+RUN npm install -g typescript
+RUN tsc
+
+CMD ["npx", "cypress", "run"]

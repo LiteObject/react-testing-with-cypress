@@ -1,0 +1,54 @@
+version: '3.8'
+name: react-testing-with-cypress
+
+services:
+  app:  
+    container_name: app
+    build: 
+      context: .
+      dockerfile: Dockerfile    
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://app:3000"]
+      start_period: 30s
+      interval: 1m10s
+      timeout: 10s
+      retries: 5      
+  
+  cypress:
+    container_name: cypress    
+    depends_on:
+      app:
+        condition: service_healthy
+    # image: cypress/included:latest
+    build: 
+      context: .
+      dockerfile: cypress/Dockerfile.Cypress  
+    environment:
+      - CYPRESS_SUPPORT_FILE=false
+      - CYPRESS_baseUrl=http://app:3000
+      - CYPRESS_video=true
+      - CYPRESS_videoFolder=cypress/video
+      - CYPRESS_screenshotOnRunFailure=true
+      - CYPRESS_screenshotsFolder=cypress/screenshots
+      - CYPRESS_SPECS_FOLDER=
+    command: npx cypress run --headless --browser chrome --config-file ./configs/cypress.docker.config.js
+            
+    # mount the host directory cypress and the file cypress.config.ts as
+    # volumes within the container
+    # this means that:
+    #  1. anything that Cypress writes to these folders (e.g., screenshots,
+    #     videos) appears also on the Docker host's filesystem
+    #  2. any change that the developer applies to Cypress files on the host
+    #     machine immediately takes effect within the e2e container (no docker
+    #     rebuild required).
+    volumes:
+       - ./cypress:/app/cypress
+    # working_dir: /cypress
+
+volumes:
+  node_modules: {}
