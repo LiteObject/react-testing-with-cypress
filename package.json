@@ -20,7 +20,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test:cy": "npx cypress run --headless --browser chrome --config-file ./cypress/config/cypress.config.ts",
+    "eject": "react-scripts eject",
+    "tsc:check": "npm run tsc:check-app && npm run tsc:check-cypress",
+    "tsc:check-app": "tsc --noEmit --project \"./tsconfig.json\"",
+    "tsc:check-cypress": "tsc --noEmit --project \"./cypress/tsconfig.json\""
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +45,6 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^13.6.0"
+    "cypress": "^13.6.1"
   }
 }

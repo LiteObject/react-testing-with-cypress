@@ -67,3 +67,27 @@ Can either start a chain or be chained off an existing one
 ---
 
 ## Pipeline Flow
+
+---
+## To run Cypress in a container and use e2e spec file from the React app depends on how you've set up your Docker environment. Here are two options:
+
+### Option 1: Using docker-compose:
+If you're using docker-compose to manage your Docker environment, you can run the following command to run Cypress tests and specify your e2e spec file:
+
+    docker-compose run cypress run --spec "cypress/e2e/*.spec.*"
+
+### Option 2: Running Cypress directly in a container:
+
+---
+
+## Basic Docker Commands
+
+### Build the Docker image
+    docker build -t react-testing-with-cypress:latest .
+
+### Run the Docker container
+    dodcker run -p 3000:3000 react-testing-with-cypress:latest
+
+### Run the Docker containers
+    docker-compose build up
+
