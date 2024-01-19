@@ -52,24 +52,12 @@ jobs:
         with:
           name: ${{ env.ARTIFACT_NAME }}
           path: build/
-
-      # - name: Run Lighthouse tests
-      #   run: npx lighthouse http://localhost:3000 --output json --output-path report.json
-
-      - name: Cypress Run
-        # https://github.com/marketplace/actions/cypress-io
-        uses: cypress-io/github-action@v6
-        with:
-          browser: chrome
-          # config-file: cypress/cypress-base.json
-          # env: WEB_APP_URI=${{steps.<ID>.outputs.<SITE_URL>}}
-          start: npm start
-
-      # - uses: actions/upload-artifact@v3
-      #   if: failure()
+      
+      # - name: Cypress Run
+      #   uses: cypress-io/github-action@v6
       #   with:
-      #     name: cypress-screenshots
-      #     path: screenshots
+      #     browser: chrome
+      #     start: npm start
 
   deploy-dev:
     name: Deploy to Dev
