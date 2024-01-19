@@ -1,6 +1,5 @@
 /// <reference types="cypress" />
 
-
 describe('cypress demo', () => {
 
   // afterEach((currentTest) => {
