@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const message = "Hello World"
   return (
     <div className="App">
       <header className="App-header">
